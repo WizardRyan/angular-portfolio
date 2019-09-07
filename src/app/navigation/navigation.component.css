@@ -15,3 +15,8 @@
   top: 0;
   z-index: 1;
 }
+
+.console-text-sidebar {
+  font-family: "VT323";
+  font-size: 45px;
+}
