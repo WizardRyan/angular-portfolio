@@ -1,0 +1,43 @@
+.sub{
+    margin-top: 20px;
+    margin-left: 5px;
+}
+
+a{
+    color: #7b1fa2;
+}
+
+h2{
+    display: block;
+    margin-block-start: 0.23em;
+    margin-block-end: 0.23em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    word-wrap: break-word;
+}
+
+.projects-wrapper{
+    margin-left: 5px;
+}
+
+.header{
+    margin-top: 20px;
+    text-decoration: underline;
+}
+
+.yell{
+    color: rgb(232, 232, 51);
+}
+
+.sub{
+    margin-top: 20px;
+    margin-left: 5px;
+}
+
+ul{
+    padding-right: 8px;
+}
+
+li{
+    margin-bottom: 10px;
+}
