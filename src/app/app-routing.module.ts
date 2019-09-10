@@ -7,14 +7,15 @@ import { ResumeComponent } from './resume/resume.component';
 import { ContactComponent } from './contact/contact.component';
 
 const routes: Routes = [
-  {path: 'about', component: AboutComponent},
-  {path: 'resume', component: ResumeComponent},
-  {path: 'projects', component: ProjectsComponent},
-  {path: 'contact', component: ContactComponent}
+  {path: 'about', component: AboutComponent, data: {animation: 'AboutPage', position: 1}},
+  {path: 'resume', component: ResumeComponent, data: {animation: 'ResumePage', position: 2}},
+  {path: 'projects', component: ProjectsComponent, data: {animation: 'ProjectsPage', position: 3}},
+  {path: 'contact', component: ContactComponent, data: {animation: 'ContactPage', position: 4}},
+  { path: '', redirectTo: '/about', pathMatch: 'full'}
 ];
 
 @NgModule({
   exports: [RouterModule],
-  imports: [RouterModule.forRoot(routes)]
+  imports: [RouterModule.forRoot(routes, {scrollPositionRestoration: 'top'})]
 })
 export class AppRoutingModule { }

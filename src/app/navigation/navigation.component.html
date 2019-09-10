@@ -1,4 +1,4 @@
-<mat-sidenav-container class="sidenav-container">
+<mat-sidenav-container class="sidenav-container" #container id="containerNav">
   <mat-sidenav #drawer class="sidenav" fixedInViewport
       [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
       [mode]="(isHandset$ | async) ? 'over' : 'side'"
@@ -23,7 +23,7 @@
       </ng-template>
     </mat-nav-list>
   </mat-sidenav>
-  <mat-sidenav-content>
+  <mat-sidenav-content id="sideContent">
     <mat-toolbar color="primary">
       <button
         type="button"
@@ -36,6 +36,8 @@
       </button>
       <span style="margin-left: 5px;" class="console-text-large">RYAN_ANDERSEN</span>
     </mat-toolbar>
-    <router-outlet></router-outlet>
+    <div [@routeAnimations]="prepareRoute(outlet)" [@routeAnimations.done]="scrollUp()">
+      <router-outlet #outlet="outlet" (activate)="onActivateRouter"></router-outlet>
+    </div>
   </mat-sidenav-content>
 </mat-sidenav-container>
