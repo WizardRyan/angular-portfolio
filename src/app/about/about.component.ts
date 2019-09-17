@@ -38,8 +38,6 @@ export class AboutComponent implements OnInit, OnDestroy {
 
     let mama: Element = document.getElementById('typewriter');
 
-    console.log(nodes);
-
     for(let node of nodes){
 
 
@@ -57,7 +55,6 @@ export class AboutComponent implements OnInit, OnDestroy {
 
         if(node.id == "google"){
           await this.delay(330)
-          console.log("in ID");
           span.style.backgroundColor = "white";
           span.style.color = "black";
           await this.delay(300);

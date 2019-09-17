@@ -26,7 +26,7 @@ export class NavigationComponent implements AfterViewInit {
       shareReplay()
     );
 
-  constructor(private breakpointObserver: BreakpointObserver, private router: Router) {}
+  constructor(private breakpointObserver: BreakpointObserver, public router: Router) {}
 
   prepareRoute(outlet: RouterOutlet) {
     // tslint:disable-next-line: no-string-literal
