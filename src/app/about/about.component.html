@@ -1,16 +1,15 @@
-<pre class="console-text" id="typewriter">
+<pre class="console-text" id="typewriter" (keyup)="onKey($event)">
 <span>Hey, I'm Ryan.</span>
 <span>It's nice to meet you.</span>
 <span></span>
 <span>I'm a developer.</span>
-<span>It means I can use Goog—</span>
-<span>er</span>
-<span>It means I solve problems.</span>
+<span id="google">It means I can use Goog</span>
+<span id="after-google">It means I solve problems.</span>
+<span></span>
+<span id="skip">[{{skipContent}}]</span>
 <span></span>
 <span>Anyways, </span>
-<span>Feel free to check out the rest of the site.</span>
+<span>Feel free to check out the rest of the site!</span>
 <span>Or stay here while I talk about myself.</span>
-<span>[press Enter to skip to the end]</span>
-<span></span>
 <span></span>
 </pre>

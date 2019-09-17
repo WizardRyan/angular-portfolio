@@ -41,3 +41,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   font-size: 25px;
   font-weight: 500;
 }
+
+.purple-blue{
+  background: rgb(138, 66, 245);
+}

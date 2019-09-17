@@ -34,7 +34,7 @@ export class NavigationComponent implements AfterViewInit {
   }
 
   ngAfterViewInit() {
-    this.content.nativeElement.scrollTo(0, 0);
+    
   }
 
   onActivateRouter(): void {
