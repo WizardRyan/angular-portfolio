@@ -1,4 +1,4 @@
-<mat-sidenav-container class="sidenav-container" #container id="containerNav">
+<mat-sidenav-container class="sidenav-container" #container id="containerNav" (swipeLeft)="drawer.close()">
   <mat-sidenav #drawer class="sidenav" fixedInViewport
       [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
       [mode]="(isHandset$ | async) ? 'over' : 'side'"
@@ -23,7 +23,7 @@
       </ng-template>
     </mat-nav-list>
   </mat-sidenav>
-  <mat-sidenav-content id="sideContent">
+  <mat-sidenav-content id="sideContent" (swipeRight)="drawer.open()">
     <mat-toolbar color="primary" style="background: #8347cc;">
       <button
         type="button"

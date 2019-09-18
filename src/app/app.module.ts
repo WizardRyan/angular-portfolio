@@ -13,6 +13,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { ContactComponent } from './contact/contact.component';
 import { DeviceDetectorModule } from 'ngx-device-detector';
 
+import 'hammerjs';
+
 @NgModule({
   declarations: [
     AppComponent,

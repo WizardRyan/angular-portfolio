@@ -1,9 +1,4 @@
-.console-text-medium {
-    font-family: "VT323";
-    font-size: 25px;
-  }
-
-  pre{
+pre{
       margin-top: 20px;
       overflow-x: auto;
       white-space: pre-wrap;
@@ -14,6 +9,9 @@
       margin-left: 20px;
   }
 
+  a{
+    color: #745cff;
+}
   /* span{
     display: block;
     

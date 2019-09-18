@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit, ElementRef, OnDestroy, HostListener } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ElementRef, OnDestroy, HostListener, AfterViewChecked, ViewChild } from '@angular/core';
 import { resolve } from 'url';
 import { DeviceDetectorService } from 'ngx-device-detector';
 
@@ -7,7 +7,7 @@ import { DeviceDetectorService } from 'ngx-device-detector';
   templateUrl: './about.component.html',
   styleUrls: ['./about.component.css']
 })
-export class AboutComponent implements OnInit, OnDestroy {
+export class AboutComponent implements OnInit, OnDestroy, AfterViewChecked {
 
   private keepTyping: boolean;
   public skipContent;
@@ -34,22 +34,27 @@ export class AboutComponent implements OnInit, OnDestroy {
     this.keepTyping = false;
   }
 
-  private async appendChildren(nodes) {
+  ngAfterViewChecked(){
+    this.scrollToBottom();
+  }
 
+  private async appendChildren(nodes) {
     let mama: Element = document.getElementById('typewriter');
 
     for(let node of nodes){
-
-
       if(node.nodeName == "SPAN"){
-        
         
         let content = node.innerHTML;
         let span = document.createElement(node.nodeName);
         mama.appendChild(span);
         
         for(let i = 0; i < content.length; i++){
-          await this.delay();
+          if(content[i] == "," || content[i] == "."){
+            await this.delay(100);
+          }
+          else{
+            await this.delay();
+          }
           span.innerHTML += content[i];
         }
 
@@ -94,6 +99,13 @@ export class AboutComponent implements OnInit, OnDestroy {
     if(event.key == "Enter"){
       this.keepTyping = false;
     }
+  }
+
+    scrollToBottom(): void {
+      const side = document.getElementById("sideContent");
+      try {
+          side.scrollTop = side.scrollHeight;
+      } catch(err) { console.log(err) }                 
   }
 }
 

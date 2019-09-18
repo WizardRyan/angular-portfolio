@@ -43,6 +43,8 @@ export class NavigationComponent implements AfterViewInit {
 
   scrollUp() {
     const top = document.getElementById('sideContent');
-    top.scrollTo(0, 0);
+    if(this.router.url !== "/about"){
+      top.scrollTo(0, 0);
+    }
   }
 }
