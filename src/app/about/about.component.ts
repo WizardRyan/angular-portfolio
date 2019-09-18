@@ -11,6 +11,9 @@ export class AboutComponent implements OnInit, OnDestroy, AfterViewChecked {
 
   private keepTyping: boolean;
   public skipContent;
+  private afterAnimation: boolean = false;
+  private side = document.getElementById("sideContent");
+
 
   constructor(private deviceService: DeviceDetectorService) {
     this.keepTyping = true;
@@ -27,6 +30,8 @@ export class AboutComponent implements OnInit, OnDestroy, AfterViewChecked {
     }
     aboutContent.innerHTML = '';
 
+
+    this.waitTillAnimationDone();
     this.appendChildren(nodes);
   }
 
@@ -102,10 +107,16 @@ export class AboutComponent implements OnInit, OnDestroy, AfterViewChecked {
   }
 
     scrollToBottom(): void {
-      const side = document.getElementById("sideContent");
-      try {
-          side.scrollTop = side.scrollHeight;
-      } catch(err) { console.log(err) }                 
+
+      if(this.afterAnimation){
+        try {
+            this.side.scrollTop = this.side.scrollHeight;
+        } catch(err) { console.log(err) }                 
+      }
+  }
+
+  waitTillAnimationDone(){
+    setTimeout(() => this.afterAnimation = true, 1000);
   }
 }
 
