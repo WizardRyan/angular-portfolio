@@ -7,22 +7,23 @@
     <mat-nav-list>
       <a mat-list-item routerLink="/about" class="console-text-sidebar" *ngIf="this.router.url == '/about' else elseBlockAbout">*ABOUT_ME</a>
       <ng-template #elseBlockAbout>
-          <a mat-list-item routerLink="/about" class="console-text-sidebar">ABOUT_ME</a>
+          <a mat-list-item (touchstart)="about()" routerLink="/about"  class="console-text-sidebar">ABOUT_ME</a>
       </ng-template>
       <a mat-list-item routerLink="/resume" class="console-text-sidebar" *ngIf="this.router.url == '/resume' else elseBlockResume">*RESUME</a>
       <ng-template #elseBlockResume>
-          <a mat-list-item routerLink="/resume" class="console-text-sidebar">RESUME</a>
+          <a mat-list-item (touchstart)="resume()" routerLink="/resume"  class="console-text-sidebar">RESUME</a>
       </ng-template>
       <a mat-list-item routerLink="/projects" class="console-text-sidebar" *ngIf="this.router.url == '/projects' else elseBlockProjects">*PROJECTS</a>
       <ng-template #elseBlockProjects>
-          <a mat-list-item routerLink="/projects" class="console-text-sidebar">PROJECTS</a>
+          <a mat-list-item (touchstart)="projects()" routerLink="/projects"  class="console-text-sidebar">PROJECTS</a>
       </ng-template>
       <a mat-list-item routerLink="/contact" class="console-text-sidebar" *ngIf="this.router.url == '/contact' else elseBlockContact">*CONTACT</a>
       <ng-template #elseBlockContact>
-          <a mat-list-item routerLink="/contact" class="console-text-sidebar">CONTACT</a>
+          <a mat-list-item (touchstart)="contact()" routerLink="/contact" class="console-text-sidebar">CONTACT</a>
       </ng-template>
     </mat-nav-list>
   </mat-sidenav>
+  
   <mat-sidenav-content id="sideContent" (swipeRight)="drawer.open()">
     <mat-toolbar color="primary" style="background: #8347cc;">
       <button

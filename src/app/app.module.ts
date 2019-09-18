@@ -1,4 +1,4 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
@@ -13,7 +13,21 @@ import { AppRoutingModule } from './app-routing.module';
 import { ContactComponent } from './contact/contact.component';
 import { DeviceDetectorModule } from 'ngx-device-detector';
 
-import 'hammerjs';
+import * as Hammer from 'hammerjs';
+
+import {HammerGestureConfig} from '@angular/platform-browser';
+import { ScrollService } from './scroll.service';
+
+export class HammerConfig extends HammerGestureConfig{
+  overrides = <any> {
+    swipe: {direction: Hammer.DIRECTION_HORIZONTAL},
+    pinch: {enable: false},
+    rotate: {enable: false},
+    press: {enable: false},
+    pan: {enable: false},
+    tap: {enable: false}
+  }
+}
 
 @NgModule({
   declarations: [
@@ -32,7 +46,13 @@ import 'hammerjs';
     AppRoutingModule,
     DeviceDetectorModule.forRoot()
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HAMMER_GESTURE_CONFIG,
+      useClass: HammerConfig
+    },
+    ScrollService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,6 +1,7 @@
 import { Component, OnInit, AfterViewInit, ElementRef, OnDestroy, HostListener, AfterViewChecked, ViewChild } from '@angular/core';
 import { resolve } from 'url';
 import { DeviceDetectorService } from 'ngx-device-detector';
+import { ScrollService } from '../scroll.service';
 
 @Component({
   selector: 'app-about',
@@ -11,11 +12,12 @@ export class AboutComponent implements OnInit, OnDestroy, AfterViewChecked {
 
   private keepTyping: boolean;
   public skipContent;
-  private afterAnimation: boolean = false;
+  private keepScrollingBottom: boolean = false;
   private side = document.getElementById("sideContent");
+  private serviceScrolled = false;
 
 
-  constructor(private deviceService: DeviceDetectorService) {
+  constructor(private deviceService: DeviceDetectorService, private scroll: ScrollService) {
     this.keepTyping = true;
    }
   
@@ -30,8 +32,8 @@ export class AboutComponent implements OnInit, OnDestroy, AfterViewChecked {
     }
     aboutContent.innerHTML = '';
 
-
     this.waitTillAnimationDone();
+    this.scroll.currentMessage.subscribe(val => { this.serviceScrolled = val; console.log(this.keepScrollingBottom); });
     this.appendChildren(nodes);
   }
 
@@ -108,7 +110,7 @@ export class AboutComponent implements OnInit, OnDestroy, AfterViewChecked {
 
     scrollToBottom(): void {
 
-      if(this.afterAnimation){
+      if(this.keepScrollingBottom && !this.serviceScrolled){
         try {
             this.side.scrollTop = this.side.scrollHeight;
         } catch(err) { console.log(err) }                 
@@ -116,7 +118,7 @@ export class AboutComponent implements OnInit, OnDestroy, AfterViewChecked {
   }
 
   waitTillAnimationDone(){
-    setTimeout(() => this.afterAnimation = true, 1000);
+    setTimeout(() => this.keepScrollingBottom = true, 1000);
   }
 }
 
