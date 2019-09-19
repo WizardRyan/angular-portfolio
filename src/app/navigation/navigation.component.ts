@@ -21,6 +21,7 @@ export class NavigationComponent implements AfterViewInit {
 
   public scrolled = false;
   private _scrollHandler = this.scrollHandler.bind(this);
+  private animationDone = false;
 
   @ViewChild('sideContent', {static: false, read: ElementRef}) viewSideContent: ElementRef;
 
@@ -40,6 +41,7 @@ export class NavigationComponent implements AfterViewInit {
   ngAfterViewInit() {
     this.scroll.currentMessage.subscribe(val => this.scrolled = val);
     document.getElementById('sideContent').addEventListener('wheel', this._scrollHandler);
+    this.waitTillAnimationDone();
   }
 
   scrollUp() {
@@ -50,15 +52,12 @@ export class NavigationComponent implements AfterViewInit {
   }
 
   scrollHandler(event){
-    console.log('scrolled');
     if(!this.scrolled){
-      console.log('not scrolled');
       this.scroll.changeScrolled(true);
       document.getElementById('sideContent').removeEventListener('wheel', this._scrollHandler);
     }
   }
   navigate(url){
-    console.log(url);
     this.router.navigateByUrl(url);
   }
 
@@ -76,5 +75,9 @@ export class NavigationComponent implements AfterViewInit {
 
   projects(){
     this.router.navigateByUrl("/projects");
+  }
+
+  waitTillAnimationDone(){
+    setTimeout(() => this.animationDone = true, 1000);
   }
 }

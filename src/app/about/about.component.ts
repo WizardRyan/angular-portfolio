@@ -108,6 +108,10 @@ export class AboutComponent implements OnInit, OnDestroy, AfterViewChecked {
     }
   }
 
+  onTouch(){
+    this.keepScrollingBottom = false;
+  }
+
     scrollToBottom(): void {
 
       if(this.keepScrollingBottom && !this.serviceScrolled){

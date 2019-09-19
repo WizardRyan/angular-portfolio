@@ -5,6 +5,7 @@
 
 a{
     color: #745cff;
+    word-wrap: break-word;
 }
 
 h2{
@@ -36,8 +37,10 @@ h2{
 
 ul{
     padding-right: 8px;
+    word-wrap: break-word;
 }
 
 li{
     margin-bottom: 10px;
+    word-wrap: break-word;
 }

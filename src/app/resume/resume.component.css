@@ -7,6 +7,12 @@ h2 {
     word-wrap: break-word;
 }
 
+a{
+    word-wrap: break-all;
+}
+
+
+
 .resume-wrapper{
     padding-left: 5px;
     /* width:100%; */
@@ -32,6 +38,7 @@ h2 {
 
 ul{
     padding-right: 8px;
+    word-wrap: break-word;
 }
 
 li{
@@ -41,4 +48,5 @@ li{
 
 a{
     color: #745cff;
+    word-wrap: break-all;
 }
