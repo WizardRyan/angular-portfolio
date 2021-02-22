@@ -28,7 +28,9 @@
               "src/styles.css",
               "src/fancy-styles.scss"
             ],
-            "scripts": ["src/script.js"]
+            "scripts": [
+              "src/script.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -121,6 +123,10 @@
               "devServerTarget": "portfolio:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy",
+          "options": {}
         }
       }
     }
