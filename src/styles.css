@@ -46,6 +46,10 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   background: rgb(138, 66, 245);
 }
 
+.content-background{
+  background: black;
+}
+
 ::selection{
   background: rgba(255, 255, 255, .99) !important;
   color: black !important;
