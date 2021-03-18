@@ -17,12 +17,9 @@ h2{
     word-wrap: break-word;
 }
 
-.projects-wrapper{
-    margin-left: 5px;
-}
 
 .header{
-    margin-top: 20px;
+    /* margin-top: 20px; */
     text-decoration: underline;
 }
 
@@ -43,4 +40,21 @@ ul{
 li{
     margin-bottom: 10px;
     word-wrap: break-word;
+}
+
+.bg-1{
+    background-color: rgb(64, 0, 0);
+}
+.bg-2{
+    background-color: rgb(0, 64, 0);
+}
+
+.bg-3{
+    background-color: rgb(0, 0, 64);
+}
+.bg-4{
+    background-color: rgb(64, 64, 40);
+}
+.bg-5{
+    background-color: rgb(0, 64, 64);
 }
