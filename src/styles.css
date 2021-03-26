@@ -57,17 +57,26 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 .bg-1{
   background-color: rgb(64, 0, 0);
+  padding: 1px;
 }
 .bg-2{
   background-color: rgb(0, 64, 0);
+  padding: 1px;
 }
 
 .bg-3{
   background-color: rgb(0, 0, 64);
+  padding: 1px;
 }
 .bg-4{
   background-color: rgb(64, 64, 40);
+  padding: 1px;
 }
 .bg-5{
   background-color: rgb(0, 64, 64);
+  padding: 1px;
+}
+
+.bg-6{
+  background-color: rgb(64, 0, 64);
 }
